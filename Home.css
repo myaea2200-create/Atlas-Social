@@ -1,0 +1,321 @@
+/* 1. Page Reset & Dark Deep Forest Theme */
+* {
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 600;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #0a1f14 0%, #030805 100%);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    color: #e2f1e7;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Home feed can grow past the viewport as posts and comments are added. */
+body.home-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: scroll !important;
+    scrollbar-gutter: stable;
+    align-items: flex-start;
+}
+
+.home-page .feed-section {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: min(860px, calc(100% - 350px));
+    margin: 32px 60px 40px 310px;
+    flex: none;
+}
+
+body.home-page::-webkit-scrollbar { width: 12px; }
+body.home-page::-webkit-scrollbar-track { background: #07120b; }
+body.home-page::-webkit-scrollbar-thumb {
+    background: #52b788;
+    border: 3px solid #07120b;
+    border-radius: 999px;
+}
+body.home-page { scrollbar-color: #52b788 #07120b; scrollbar-width: auto; }
+
+@media (max-width: 760px) {
+    .home-page .feed-section { width: calc(100% - 32px); margin: 100px 16px 32px; }
+}
+
+/* 2. Container for Floating Background Spores */
+.spore-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.spore {
+    position: absolute;
+    bottom: -20px;
+    background: #a3e635;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #a3e635, 0 0 30px #10b981;
+    opacity: 0.7;
+    animation: floatUp linear infinite;
+}
+
+/* Continuous Upward Drift Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8) translateX(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% {
+        transform: translateY(-110vh) scale(1.4) translateX(50px);
+        opacity: 0;
+    }
+}
+.boxforbutton{
+    
+    background:  linear-gradient(180deg,  rgba(9, 64, 8, 0.396), rgba(44, 78, 8, 0.527));
+    width: 250px;
+    height:100vh;
+    position:fixed;
+    left:0%;
+    top: 0%;
+    border-top-right-radius: 20px;
+}
+.Button img{
+    width: 20px;
+    height:auto;
+}
+.Button-link {
+    text-decoration: none;
+}
+.Button{
+    width: 160px;
+    max-width: 160px;
+    height: 56px;
+    padding: 10px 16px;
+    font-size: 18px;
+    font-family: 'Work Sans', sans-serif !important;
+    font-weight: 700;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background: var(--Button-bg);
+    
+    /* Frosted backdrop blur */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Soft border & subtle light reflection */
+    border: 1px solid var(--Button-border);
+    border-radius: 28px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    
+    /* Inset glass light reflection & outer depth shadow */
+    box-shadow: 0 15px 30px rgba(78, 107, 5, 0.507), 
+                inset 0 0 20px var(--Button-highlight);
+    filter: drop-shadow( inset 0px 30px 10px rgba(255, 255, 255, 0.344)) ;
+                
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Button:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(168, 230, 10, 0.451),
+                inset 0 0 30px var(--Button-highlight);
+    filter:drop-shadow(inset 0px -10px 10px rgba(2, 227, 88, 0.344)) ;
+}
+
+
+.menu{
+    margin: 0;
+    position: fixed;
+    top: 135px;
+    left: 45px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    justify-content: flex-start;
+}
+/* Palette Variables */
+:root {
+    --ivory: #0c3d10;
+    --dry-sage: #87ab11;
+    --tea-green: #79b32e;
+    --medium-jungle: #0f690f;
+    --light-green: #14e378;
+
+    /* Glass Effect Variables */
+    --Button-bg: rgba(17, 224, 96, 0.518);
+    --Button-border: rgba(167, 255, 180, 0.2);
+    --Button-highlight: rgba(30, 222, 110, 0.25);
+}
+
+* {
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+}
+
+
+
+/* ==========================================
+   PURE LIQUID GLASS PANEL
+   ========================================== */
+
+
+/* Moving Light Sweep / Reflection Across Glass */
+.Button::before {
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(238, 241, 225, 0.15), 
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: button-shine 6s infinite;
+}
+
+@keyframes button-shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+.Button button{
+    font-size: 1em;
+    line-height: 1.6;
+    color: rgba(238, 241, 225, 0.75);
+}
+.profile-shell {
+    position: relative;
+    z-index: 2;
+    width: min(760px, calc(100% - 320px));
+    margin-left: 220px;
+}
+
+.profile-card {
+    background: rgba(7, 40, 17, 0.78);
+    border: 1px solid rgba(163, 230, 53, 0.25);
+    border-radius: 26px;
+    box-shadow: 0 20px 50px rgba(4, 22, 12, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+}
+
+.profile-cover {
+    height: 140px;
+    background: linear-gradient(135deg, #1d8f3e, #88d84a, #0b2b13);
+}
+
+.profile-content {
+    padding: 0 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 40px;
+    text-align: left;
+    transition: all 0.4s ease;
+    cursor: pointer;
+}
+:root{ /* Glass & UI Variables */
+    --glass-bg: rgba(238, 241, 225, 0.04);
+    --glass-border: rgba(197, 206, 165, 0.2);
+    --glass-highlight: rgba(238, 241, 225, 0.25);
+    --text-main: var(--ivory);
+    --text-muted: rgba(238, 241, 225, 0.7);
+    --accent: var(--light-green);
+}
+.glass-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    background: rgba(238, 241, 225, 0.08);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(185, 229, 138, 0.15);
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -42px;
+    border: 4px solid rgba(236, 255, 229, 0.95);
+    background: linear-gradient(135deg, #0f3b17, #2fb957);
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.title {
+    color: #a8ef76;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.bio {
+    color: #d8f7d9;
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-stats div {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    border-radius: 14px;
+    min-width: 100px;
+}
+
+.profile-stats strong {
+    display: block;
+    font-size: 1.05rem;
+    color: white;
+}
+
+.profile-stats span {
+    font-size: 0.9rem;
+    color: #bfe7b5;
+}
+
+.img-menu-logo{
+    position: fixed;
+    z-index: 2;
+    top: 5px;
+    left:70px;
+    width: 100px;
+}
+

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Atlas Social</title>
+        <link rel="stylesheet" href="login.css">
+        <link rel="icon" href="Logo_real3.png">
+    </head>
+    <body>
+
+        <!-- Background Elements -->
+        <div class="aurora-bg"></div>
+        <div class="grid-overlay"></div>
+        <div class="cursor-spotlight" id="spotlight"></div>
+
+        <div class="cyber-card">
+            <h1>Atlas Social</h1>
+            <p class="card-subtitle">Secure sign in to your account</p>
+            <form id="login-form">
+                <label for="username" class="sr-only">Email</label>
+                <input id="username" name="username" type="email" placeholder="Email" autocomplete="email" required>
+
+                <label for="password" class="sr-only">Password</label>
+                <input id="password" name="password" type="password" placeholder="Password" required>
+
+                <button id="submit-button" type="submit">Login</button>
+            </form>
+            <button id="mode-button" class="secondary-button" type="button">New here? Create an account</button>
+            <p id="status" role="status"></p>
+        </div>
+        
+        
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="supabase-config.js"></script>
+        <script src="login.js"></script>
+    </body>
+</html>

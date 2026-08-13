@@ -1,0 +1,443 @@
+/* 1. Page Reset & Dark Deep Forest Theme */
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap');
+* {
+    font-weight: 600;
+    font-family: 'Work Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background: radial-gradient(circle at center, #0a1f14 0%, #030805 100%);
+    color: #e2f1e7;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* 2. Container for Floating Background Spores */
+.spore-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.spore {
+    position: absolute;
+    bottom: -20px;
+    background: #a3e635;
+    border-radius: 50%;
+    box-shadow: 0 0 15px #a3e635, 0 0 30px #10b981;
+    opacity: 0.7;
+    animation: floatUp linear infinite;
+}
+
+/* Continuous Upward Drift Animation */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8) translateX(0);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% {
+        transform: translateY(-110vh) scale(1.4) translateX(50px);
+        opacity: 0;
+    }
+}
+.boxforbutton{
+    background:  linear-gradient(180deg,  rgba(9, 64, 8, 0.396), rgba(44, 78, 8, 0.527));
+    width: 250px;
+    height:100vh;
+    position:absolute;
+    left:0%;
+    top: 0%;
+    box-shadow: 10px 2px 2px 1px rgba(17, 104, 29, 0.052);
+    border-top-right-radius: 20px;
+}
+.Button img{
+    width: 20px;
+    height:auto;
+}
+.Button-link {
+    text-decoration: none;
+}
+.Button{
+    width:auto;
+    max-width: 160px;
+    height: 8%;
+    padding: 15px 35px;
+    font-size: 18px;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    background: var(--Button-bg);
+    
+    /* Frosted backdrop blur */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    
+    /* Soft border & subtle light reflection */
+    border: 1px solid var(--Button-border);
+    border-radius: 28px;
+    text-align: center;
+    
+    /* Inset glass light reflection & outer depth shadow */
+    box-shadow: 0 15px 30px rgba(78, 107, 5, 0.507), 
+                inset 0 0 20px var(--Button-highlight);
+    filter: drop-shadow( inset 0px 30px 10px rgba(255, 255, 255, 0.344)) ;
+                
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.Button:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 15px 30px rgba(168, 230, 10, 0.451),
+                inset 0 0 30px var(--Button-highlight);
+    filter:drop-shadow(inset 0px -10px 10px rgba(2, 227, 88, 0.344)) ;
+}
+
+
+.menu{
+    margin-top: 150px;
+    margin-bottom: 10px;
+    position: fixed;
+    left:50px;
+  
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    justify-content: flex-start;
+}
+/* Palette Variables */
+:root {
+    --ivory: #0c3d10;
+    --dry-sage: #87ab11;
+    --tea-green: #79b32e;
+    --medium-jungle: #0f690f;
+    --light-green: #14e378;
+
+    /* Glass Effect Variables */
+    --Button-bg: rgba(17, 224, 96, 0.518);
+    --Button-border: rgba(167, 255, 180, 0.2);
+    --Button-highlight: rgba(30, 222, 110, 0.25);
+}
+
+
+
+
+/* ==========================================
+   PURE LIQUID GLASS PANEL
+   ========================================== */
+
+
+/* Moving Light Sweep / Reflection Across Glass */
+.Button::before {
+    background: linear-gradient(
+        to right, 
+        transparent, 
+        rgba(238, 241, 225, 0.15), 
+        transparent
+    );
+    transform: skewX(-20deg);
+    animation: button-shine 6s infinite;
+}
+
+@keyframes button-shine {
+    0% { left: -100%; }
+    20% { left: 200%; }
+    100% { left: 200%; }
+}
+
+.Button button{
+    font-size: 1em;
+    line-height: 1.6;
+    color: rgba(238, 241, 225, 0.75);
+}
+.profile-shell {
+    position: relative;
+    z-index: 2;
+    width: min(760px, calc(100% - 320px));
+    margin-left: 220px;
+}
+
+.profile-card {
+    background: rgba(7, 40, 17, 0.78);
+    border: 1px solid rgba(163, 230, 53, 0.25);
+    border-radius: 26px;
+    box-shadow: 0 20px 50px rgba(4, 22, 12, 0.45);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
+}
+
+.profile-cover {
+    height: 140px;
+    background: linear-gradient(135deg, #1d8f3e, #88d84a, #0b2b13);
+}
+
+.profile-content {
+    padding: 0 28px 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -42px;
+    border: 4px solid rgba(236, 255, 229, 0.95);
+    background: linear-gradient(135deg, #0f3b17, #2fb957);
+    display: grid;
+    place-items: center;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.profile-info h1 {
+    font-size: 1.8rem;
+    margin-bottom: 4px;
+}
+
+.title {
+    color: #a8ef76;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.bio {
+    color: #d8f7d9;
+    line-height: 1.6;
+}
+
+.profile-stats {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-stats div {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 14px;
+    border-radius: 14px;
+    min-width: 100px;
+}
+
+.profile-stats strong {
+    display: block;
+    font-size: 1.05rem;
+    color: white;
+}
+
+.profile-stats span {
+    font-size: 0.9rem;
+    color: #bfe7b5;
+}
+
+.img-menu-logo{
+    position: fixed;
+    z-index: 2;
+    top: 5px;
+    left:70px;
+    width: 100px;
+}
+/* text for welcome */
+.glass-text {
+    position: relative;
+
+    font-size: clamp(80px, 15vw, 220px);
+    font-weight: 800;
+
+    color: rgba(255, 255, 255, 0.12);
+
+    /* Glass border */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.75);
+
+    /* Glass blur */
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(0, 180, 255, 0.5),
+        0 0 60px rgba(150, 50, 255, 0.4);
+
+    backdrop-filter: blur(10px);
+    
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.8),
+        rgba(100,200,255,0.3),
+        rgba(255,100,220,0.5)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    transition: transform 0.2s ease;
+}.glass-text {
+    position: relative;
+
+    font-family: Arial, sans-serif;
+    font-size: clamp(80px, 15vw, 220px);
+    font-weight: 800;
+
+    color: rgba(255, 255, 255, 0.12);
+
+    /* Glass border */
+    -webkit-text-stroke: 2px rgba(255, 255, 255, 0.75);
+
+    /* Glass blur */
+    text-shadow:
+        0 0 10px rgba(255, 255, 255, 0.5),
+        0 0 30px rgba(0, 180, 255, 0.5),
+        0 0 60px rgba(150, 50, 255, 0.4);
+
+    backdrop-filter: blur(10px);
+    
+    background: linear-gradient(
+        135deg,
+        rgba(255,255,255,0.8),
+        rgba(100,200,255,0.3),
+        rgba(255,100,220,0.5)
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    transition: transform 0.2s ease;
+}
+
+/* Profile  */
+        .wrapper {
+            position: relative;
+            z-index: 2;
+            width: min(900px, 95vw);
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 20px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: rgba(7, 35, 16, 0.85);
+            border: 1px solid rgba(163, 230, 53, 0.25);
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+            overflow: hidden;
+            backdrop-filter: blur(16px);
+        }
+
+        .cover {
+            height: 130px;
+            background: linear-gradient(135deg, #1d8f3e, #82db45, #082613);
+        }
+
+        .content {
+            padding: 0 24px 24px;
+        }
+
+        .avatar {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-top: -42px;
+            border: 4px solid #f4fff0;
+            background: linear-gradient(135deg, #0f3b17, #2fb957);
+            display: grid;
+            place-items: center;
+            font-size: 1.7rem;
+            font-weight: 700;
+            color: white;
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+        }
+
+        .avatar span {
+            pointer-events: none;
+        }
+
+        .name {
+            font-size: 1.8rem;
+            margin: 12px 0 6px;
+        }
+
+        .bio {
+            color: #dcefd8;
+            line-height: 1.6;
+            margin: 8px 0 0;
+        }
+
+        .editor {
+            background: rgba(6, 30, 14, 0.92);
+            padding: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(163, 230, 53, 0.2);
+        }
+
+        .editor h2 {
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+            color: #c9f7b7;
+        }
+
+        .editor label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #bfe7b5;
+        }
+
+        .editor input,
+        .editor textarea {
+            width: 100%;
+            padding: 10px 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(163, 230, 53, 0.2);
+            border-radius: 10px;
+            background: rgba(255,255,255,0.06);
+            color: white;
+            outline: none;
+        }
+
+        .editor textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .editor button {
+            padding: 10px 14px;
+            border: none;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #2fb957, #7fe14e);
+            color: #03210c;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .status {
+            margin-top: 8px;
+            color: #9fe76d;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 760px) {
+            .wrapper {
+                grid-template-columns: 1fr;
+            }
+        }

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Atlas Social</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,view-fit-cover">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+        <link rel="icon" href="Logo_real3.png">
+        <link rel="stylesheet" href="Profile.css">
+        <link rel="stylesheet" href="Home.css">
+</head>
+<body>
+        <img src="Logo_real3.png" alt="Atlas Social" class="img-menu-logo">
+    <div class="boxforbutton"></div>
+        <div class="menu">
+            <a href="Profile.html" class="Button-link">
+                <button class="Button" type="button">
+                    <img src="account.png">
+                    Profile
+                </button>
+            </a>
+            <a href="Home.html" class="Button-link">
+                <button class="Button" type="button">
+                    <img src="House.png">
+                    Home
+                </button>
+            </a>
+            <a href="post-web.html" class="Button-link">
+            <button class="Button" type="button">
+                <img src="post.png">
+                Post
+            </button>
+             </a>
+            <a href="About-.html" class="Button-link">
+            <button class="Button" type="button">
+                <img src="about.png">
+                About
+            </button>
+            </a>
+
+        </div>
+
+<!-- profile edit button -->
+    <div class="wrapper">
+        <section class="profile-card">
+            <div class="cover"></div>
+            <div class="content">
+                <div class="avatar" id="avatarPreview"><span id="avatarText">AC</span></div>
+                <h1 class="name" id="nameText">Alicia Chen</h1>
+                <p class="bio" id="bioText">I create calm digital spaces with bright ideas and a simple touch.</p>
+            </div>
+        </section>
+
+        <aside class="editor">
+        <h2>Edit Profile</h2>
+        <label>Name</label>
+        <input id="nameInput" value="Alicia Chen" />
+
+        <label>Bio</label>
+        <textarea id="bioInput">I create calm digital spaces with bright ideas and a simple touch.</textarea>
+
+        <label>Upload Photo</label>
+        <input type="file" id="photoInput" accept="image/*" />
+
+        <button onclick="saveProfile()">Save Profile</button>
+        <div class="status" id="statusText">Your profile is saved locally in browser SQL storage.</div>
+    </aside>
+</div>
+    <!-- Floating Bioluminescent Spores -->
+    <div class="spore-container" id="sporeContainer"></div>
+
+    <!-- Connects your JavaScript file -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="Profile.js"></script>
+</body>
+</html>

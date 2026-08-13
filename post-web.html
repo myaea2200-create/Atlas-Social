@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ClearWave | Pollution Knowledge Hub</title>
+        
+
+        <!-- CSS Stylesheet -->
+        <link rel="stylesheet" href="post.css"> 
+        <link rel="stylesheet" href="Home.css">
+    </head>
+    <body>
+        <img src="Logo_real3.png" alt="Atlas Social" class="img-menu-logo">
+    <div class="boxforbutton"></div>
+        <div class="menu">
+            <a href="Profile.html" class="Button-link">
+                <button class="Button" type="button">
+                    <img src="account.png">
+                    Profile
+                </button>
+            </a>
+            <a href="Home.html" class="Button-link">
+                <button class="Button" type="button">
+                    <img src="House.png">
+                    Home
+                </button>
+            </a>
+            <a href="post-web.html" class="Button-link">
+            <button class="Button" type="button">
+                <img src="post.png">
+                Post
+            </button>
+             </a>
+            <a href="About-.html" class="Button-link">
+            <button class="Button" type="button">
+                <img src="about.png">
+                About
+            </button>
+            </a>
+
+        </div>
+    </div>
+    <!-- Floating Bioluminescent Spores -->
+    <div class="spore-container" id="sporeContainer"></div>
+     <main class="feed-section">
+            <!-- Box to Create a New Post -->
+            <section class="post-box-card glass-card">
+                <h3>Share an Eco-Friendly Suggestion</h3>
+                <!-- maxlength limits character count so it never scrolls down -->
+                <textarea id="suggestionInput" maxlength="150" placeholder="How can we protect the planet today? (e.g. Plant a native flower)"></textarea>
+                <button id="postBtn">Post Suggestion</button>
+                <p id="postStatus" class="post-status" role="status"></p>
+            </section>
+
+               <!-- File Input Area -->
+    <div class="file-upload-wrapper">
+        <label for="fileInput" class="upload-btn">
+            📷 Attach Photo / File
+        </label>
+        <input type="file" id="fileInput" accept="image/*" style="display: none;">
+        <span id="fileName" class="file-name">No photo selected</span>
+    </div>
+    </main>
+
+
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script src="auth.js"></script>
+    <script src="post.js"></script>
+    <script src="Home.js"></script>
+</html>

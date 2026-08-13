@@ -1,0 +1,249 @@
+/* General page style */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+}
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #eef5f0; 
+    margin: 0;
+    padding: 0;
+    color: #2c3e50;
+}
+
+/* Header/Navbar */
+.navbar {
+    background-color: #2d6a4f; 
+    color: white;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.navbar h1 {
+    margin: 0;
+    font-size: 2.2rem;
+}
+
+/* Main Layout: Aligns profile on the left and feed on the right */
+.main-container {
+    max-width: 950px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    display: flex;
+    gap: 2rem; /* Creates space between the two columns */
+    flex-wrap: wrap; /* Stacks columns vertically on small mobile screens */
+}
+
+/* PROFILE CARD DESIGN (Left Column) */
+.profile-sidebar {
+    background-color: white;
+    flex: 1;
+    min-width: 250px;
+    padding: 2rem 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    height: fit-content; /* Only takes up as much space as needed */
+}
+
+/* Avatar/PFP design */
+.avatar-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.avatar {
+    background-color: #d8f3dc;
+    font-size: 3rem;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Makes the box a perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #52b788;
+}
+
+.profile-sidebar h2 {
+    margin: 0.5rem 0 0.2rem 0;
+    color: #1b4332;
+    font-size: 1.4rem;
+}
+
+.username {
+    margin: 0;
+    color: #74c69d;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.bio {
+    font-size: 0.9rem;
+    color: #52796f;
+    line-height: 1.4;
+    margin: 1rem 0;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #e2e8f0;
+    margin: 1rem 0;
+}
+
+/* Flexbox for stats row */
+.profile-stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-number {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1b4332;
+}
+
+.stat-label {
+    font-size: 0.8rem;
+    color: #52796f;
+}
+
+/* FEED SECTION DESIGN (Right Column) */
+.feed-section {
+    position: absolute;
+    top: 30px;
+    left: 350px;
+    color:#e2e8f0;
+    margin-right: 80px;
+    flex: 2;
+    min-width: 200px;
+}
+
+/* Post creation card */
+.post-box-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+textarea {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 2px solid #b7e4c7;
+    border-radius: 8px;
+    font-size: 1rem;
+    resize: none; 
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    overflow: hidden; /* Hides scrollbar */
+}
+
+button {
+    background-color: #40916c;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100%;
+    transition: 0.2s ease-all;
+}
+
+button:hover {
+    background-color: #1b4332;
+}
+
+/* Individual user post styling */
+.post {
+    color:#eef5f0;
+    background-color: rgba(255, 255, 255, 0.197);
+    padding: 1.2rem;
+    border-left: 6px solid #52b788;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.post h4 {
+    margin: 0 0 0.5rem 0;
+    color: #dfeae6;
+}
+
+.post p{
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+/* File Upload Styling */
+.file-upload-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+.upload-btn {
+    background-color: #b7e4c7;
+    color: #1b4332;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9rem;
+    transition: background-color 0.2s ease;
+    display: inline-block;
+}
+
+.upload-btn:hover {
+    background-color: #74c69d;
+}
+
+.file-name {
+    font-size: 0.85rem;
+    color: #52796f;
+    font-style: italic;
+}
+
+/* Image preview inside feed post */
+.post-media {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 460px;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-top: 0.8rem;
+}
+
+.file-attachment-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: #2d6a4f;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.post-date, .post-status, .empty-feed { display: block; margin: 0.3rem 0 0.85rem; color: #bfe7b5; font-size: 0.82rem; }
+.post-status.error, .error { color: #ffb4b4; }
+.post-actions { margin-top: 1rem; }
+.feed-button { width: auto; min-width: 112px; padding: 0.55rem 0.9rem; font: inherit; font-size: 0.9rem; }
+.delete-button { margin-left: 0.6rem; background-color: #a83d3d; }
+.delete-button:hover { background-color: #7c2626; }
+.comments { margin-top: 1rem; border-top: 1px solid rgba(191, 231, 181, 0.25); padding-top: 0.8rem; }
+.comments-title { color: #dfeae6; margin-bottom: 0.55rem; }
+.comment { color: #e2f1e7; margin: 0.35rem 0; font-size: 0.9rem; }
+.comment-form { display: flex; gap: 0.6rem; margin-top: 0.75rem; }
+.comment-form input { flex: 1; min-width: 0; border-radius: 6px; border: 1px solid #b7e4c7; padding: 0.55rem; font: inherit; }
