@@ -278,6 +278,27 @@ nav {
     .glass-panel {
         padding: 40px 20px;
     }
+
+    .welcome-text {
+        font-size: clamp(3rem, 15vw, 5rem);
+        margin-top: 6rem !important;
+        line-height: 1;
+    }
+    .hero { min-height: auto; padding: 36px 16px; }
+    .glass-panel { width: 100%; border-radius: 20px; }
+    .glass-panel p, .section-text { font-size: 1rem; }
+    .section-title, .Big-text { font-size: clamp(2.25rem, 11vw, 3.5rem); }
+    .info-section { padding: 48px 16px; }
+    .grid { flex-direction: column; gap: 18px; margin-top: 18px; }
+    .glass-card { padding: 22px; }
+    .glass-card h3 { font-size: 1.4rem; }
+    .glass-card img, .img-p-1 { width: 100% !important; height: auto !important; max-width: 100%; }
+    .video-iframe { height: auto; aspect-ratio: 16 / 9; padding: 0; border-radius: 12px; }
+    .position-video { padding: 16px; }
+    .nav-actions { top: 12px; right: 12px; }
+    .Home-button { width: 48px; height: 48px; }
+    .Home-button img { width: 34px !important; }
+    .cyber-card { width: calc(100% - 32px); height: auto; min-height: 180px; margin: 0 16px 28px; }
 }
 .logo-img{
     width: 40px;
@@ -517,3 +538,15 @@ nav {
       color: #ff0055;
       font-weight: bold;
       text-shadow: 0 0 5px rgba(255, 0, 85, 0.5);}
+
+/* Keep the news and footer cards inside narrow phone viewports. */
+@media (max-width: 768px) {
+    .welcome-text { font-size: clamp(3rem, 15vw, 5rem); margin-top: 6rem !important; line-height: 1; }
+    .Big-text { font-size: clamp(2.25rem, 11vw, 3.5rem); }
+    .glass-card img, .img-p-1 { width: 100% !important; max-width: 100%; height: auto !important; }
+    .cyber-card { width: calc(100% - 32px); height: auto; min-height: 180px; margin: 0 16px 28px; }
+    .grid { flex-direction: column; gap: 18px; }
+    .info-section { padding: 48px 16px; }
+    .glass-card { padding: 22px; }
+    .video-iframe { height: auto; aspect-ratio: 16 / 9; padding: 0; }
+}
