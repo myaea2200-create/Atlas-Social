@@ -1,7 +1,7 @@
 // Get these values from Supabase Dashboard > Project Settings > API.
 // The anon key is designed for browser use. Never put a service_role key here.
-window.SUPABASE_URL = 'https://ouhvfwbksdcuybovfseu.supabase.co';
-window.SUPABASE_ANON_KEY = 'sb_publishable_EXnSDybfCNs8_0wzQE6RtQ_poe38TpN';
+window.SUPABASE_URL = 'https://qjtgtoadpztyipzdfbqs.supabase.co';
+window.SUPABASE_ANON_KEY = 'sb_publishable_tO1eBpM1V1HAVCrcS_RFaw_Rrsmbv5k';
 
 if (
   window.SUPABASE_URL.startsWith('PASTE_') ||
