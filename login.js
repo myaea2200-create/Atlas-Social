@@ -16,6 +16,35 @@ function showStatus(message, isError = false) {
   statusBox.style.color = isError ? '#ff9b9b' : '#9fffc8';
 }
 
+function getAuthErrorMessage(error) {
+  const message = String(error?.message || '').toLowerCase();
+  const status = error?.status || error?.statusCode;
+
+  if (message.includes('failed to fetch') || message.includes('networkerror') || message.includes('network request failed')) {
+    return 'Cannot reach the authentication service. Check your internet connection and try again.';
+  }
+  if (status === 429 || message.includes('rate limit')) {
+    return 'Too many attempts. Please wait a moment before trying again.';
+  }
+  if (message.includes('user already registered') || message.includes('already been registered')) {
+    return 'An account already exists for this email. Try logging in instead.';
+  }
+  if (message.includes('password should be at least') || message.includes('password')) {
+    return error.message;
+  }
+  if (status === 400 || status === 422) {
+    return error.message || 'Please check the details you entered and try again.';
+  }
+  if (status === 403 || message.includes('apikey') || message.includes('api key')) {
+    return 'Authentication is unavailable because the Supabase configuration is invalid.';
+  }
+  if (status === 401 || message.includes('invalid login credentials')) {
+    return 'Incorrect email or password.';
+  }
+
+  return 'Something went wrong. Please try again shortly.';
+}
+
 function setMode(signUp) {
   isSignUp = signUp;
   submitButton.textContent = signUp ? 'Create account' : 'Login';
@@ -60,7 +89,15 @@ form.addEventListener('submit', async (event) => {
         })
       : await window.supabaseClient.auth.signInWithPassword({ email: username, password });
 
-    if (result.error) return showStatus(result.error.message, true);
+    if (result.error) {
+      console.error('Supabase authentication error:', result.error);
+      return showStatus(getAuthErrorMessage(result.error), true);
+    }
+
+    if (!result.data?.user) {
+      console.error('Supabase authentication returned no user:', result);
+      return showStatus('Authentication did not complete. Please try again.', true);
+    }
 
     if (isSignUp && !result.data.session) {
       return showStatus('Account created. Check your email to confirm it, then log in.');
@@ -69,7 +106,7 @@ form.addEventListener('submit', async (event) => {
     window.location.replace('Home.html');
   } catch (error) {
     console.error('Supabase authentication request failed:', error);
-    showStatus('Unable to reach the authentication service. Please try again shortly.', true);
+    showStatus(getAuthErrorMessage(error), true);
   } finally {
     submitButton.disabled = false;
   }
