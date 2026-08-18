@@ -28,8 +28,12 @@ function setMode(signUp) {
 
 async function redirectIfSignedIn() {
   if (!window.supabaseClient) return;
-  const { data, error } = await window.supabaseClient.auth.getSession();
-  if (!error && data.session) window.location.replace('Home.html');
+  try {
+    const { data, error } = await window.supabaseClient.auth.getSession();
+    if (!error && data.session) window.location.replace('Home.html');
+  } catch (error) {
+    console.error('Unable to restore Supabase session:', error);
+  }
 }
 
 modeButton.addEventListener('click', () => setMode(!isSignUp));
@@ -47,22 +51,28 @@ form.addEventListener('submit', async (event) => {
   submitButton.disabled = true;
   showStatus(isSignUp ? 'Creating account…' : 'Signing in…');
 
-  const result = isSignUp
-    ? await window.supabaseClient.auth.signUp({
-        email: username,
-        password,
-        options: { emailRedirectTo: `${window.location.origin}/login.html` }
-      })
-    : await window.supabaseClient.auth.signInWithPassword({ email: username, password });
+  try {
+    const result = isSignUp
+      ? await window.supabaseClient.auth.signUp({
+          email: username,
+          password,
+          options: { emailRedirectTo: `${window.location.origin}/login.html` }
+        })
+      : await window.supabaseClient.auth.signInWithPassword({ email: username, password });
 
-  submitButton.disabled = false;
-  if (result.error) return showStatus(result.error.message, true);
+    if (result.error) return showStatus(result.error.message, true);
 
-  if (isSignUp && !result.data.session) {
-    return showStatus('Account created. Check your email to confirm it, then log in.');
+    if (isSignUp && !result.data.session) {
+      return showStatus('Account created. Check your email to confirm it, then log in.');
+    }
+
+    window.location.replace('Home.html');
+  } catch (error) {
+    console.error('Supabase authentication request failed:', error);
+    showStatus('Unable to reach the authentication service. Please try again shortly.', true);
+  } finally {
+    submitButton.disabled = false;
   }
-
-  window.location.replace('Home.html');
 });
 
 redirectIfSignedIn();
