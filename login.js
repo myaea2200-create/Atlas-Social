@@ -111,5 +111,4 @@ form.addEventListener('submit', async (event) => {
     submitButton.disabled = false;
   }
 });
-
 redirectIfSignedIn();
